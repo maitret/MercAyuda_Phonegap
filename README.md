@@ -1,6 +1,6 @@
 # Nothing To Do Here
 
-:v
+;)
 
 :bowtie:
 
