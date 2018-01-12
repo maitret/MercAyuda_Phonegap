@@ -1,0 +1,22 @@
+[data-ma-theme=blue] .header, [data-ma-theme=blue] .login__block__btn, [data-ma-theme=blue] .login__block__header { background-color: #218BC4; }
+
+.header { position: absolute !important; height: 50px !important; padding: 0 0 0 5px !important; }
+
+@media (max-width: 576px){
+.top-nav > li > a:not(.header__nav__text) { min-width: 40px !important; }
+.top-nav > li .dropdown-menu--block { left: 15px; width: calc(100% - 30px); }
+}
+@media (min-width: 576px){
+.header { position: absolute !important; height: 50px !important; padding: 0 1rem !important; }
+}
+@media (min-width: 1200px){  }
+
+.top-nav > li > a:not(.header__nav__text) { min-width: 40px !important; }
+.sidebar { position: fixed !important; padding-top: 70px !important; }
+.content:not(.content--boxed):not(.content--full) { padding-top: 70px !important; }
+
+.modal-dialog { margin: 0 !important; }
+.big-btn_ { height: 60px; width: 60px; }
+.btn--fixed { position: fixed !important; bottom: 30px; right: 30px; }
+.top-nav__notify:before{ content: none !important; background-color: transparent; }
+.notif_activa:before { content: '' !important; background-color: #ff605c; }

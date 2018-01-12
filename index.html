@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="maitret@myhostmx.com">
+<title>MercAyuda</title>
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="mobile-web-app-capable" content="yes"><meta name="theme-color" content="#218BC4">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#303F9F">
+<meta name="apple-mobile-web-app-title" content="MercAyuda"><meta name="apple-mobile-web-app-status-bar-style" content="#218BC4">
+<meta name="msapplication-TileColor" content="#218BC4"><meta name="msapplication-navbutton-color" content="#218BC4">
+
+<link rel="stylesheet" href="vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
+<link rel="stylesheet" href="vendors/bower_components/animate.css/animate.min.css">
+<link rel="stylesheet" href="vendors/bower_components/jquery.scrollbar/jquery.scrollbar.css">
+<link rel="stylesheet" href="vendors/bower_components/fullcalendar/dist/fullcalendar.min.css">
+<link rel="stylesheet" href="vendors/bower_components/select2/dist/css/select2.min.css">
+<link rel="stylesheet" href="vendors/bower_components/lightgallery/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="css/app.min.css">
+<link href="css/estilos.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<!--<script src="https://use.fontawesome.com/625e6d8f9f.js"></script>-->
+
+<script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="vendors/bower_components/lightgallery/dist/js/lightgallery.min.js"></script>
+<script src="vendors/bower_components/lightgallery/demo/js/lg-fullscreen.min.js"></script>
+<script src="vendors/bower_components/lightgallery/demo/js/lg-thumbnail.min.js"></script>
+<script src="vendors/bower_components/lightgallery/demo/js/lg-zoom.min.js"></script>
+<script src="vendors/bower_components/lightgallery/demo/js/lg-video.min.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&region=mx&language=es&lang=es&libraries=places,geometry,visualization&key=AIzaSyBFv28V5hnPyu2EY8iem6bs6WE5DQwA-No"></script>
+<script src="js/jquery.are-you-sure.js"></script>
+<script src="js/jquery.geocomplete.min.js"></script>
+
+<script type="text/javascript" src="cordova.js"></script>
+<!--<script type="text/javascript" src="js/push.js"></script>-->
+<script type="text/javascript" src="js/pg_index.js"></script>
+<!-- <script src="js/header_web.js"></script> -->
+
+</head>
+<body data-ma-theme="blue">
+<main class="main">
+<div class="page-loader"><div class="page-loader__spinner"><svg viewBox="25 25 50 50"><circle cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /></svg></div></div>
+<header class="header">
+<div class="navigation-trigger hidden-xl-up" data-ma-action="aside-open" data-ma-target=".sidebar">
+<div class="navigation-trigger__inner">
+<i class="navigation-trigger__line"></i>
+<i class="navigation-trigger__line"></i>
+<i class="navigation-trigger__line"></i>
+</div>
+</div>
+<div class="header__logo hidden-sm-down_">
+
+<a href="index.html"><img src="img/Logo_White.png" border="0" style="max-height:35px;" alt="CircleRide"></a>
+</div>
+
+<ul class="top-nav">
+
+<li class="dropdown hidden-xs-down div_extras_header" style="display: none;"></li>
+
+<li class="dropdown top-nav__notifications" style="display: none;">
+<a href="javascript:void(0);" data-toggle="dropdown" class="top-nav__notify click_get_notificaciones"><i class="zmdi zmdi-notifications"></i></a>
+<div class="dropdown-menu dropdown-menu-right dropdown-menu--block">
+<div class="listview listview--hover">
+<div class="listview__header"><a href="#/ajax/?t=all_noti">Notificaciones</a></div>
+<div class="listview__scroll scrollbar-inner update_get_notificaciones">
+<a href="#" class="listview__item"><div class="listview__content"><div class="listview__heading">Cargando...</div><p>Espere un momento... <i class="fa fa-refresh fa-spin"></i></p></div></a>
+</div>
+<div class="p-1"></div></div></div></li>
+<li class="dropdown top-nav__notifications" style="display: none;">
+<a href="javascript:void(0);" data-toggle="dropdown" class="top-nav__notify click_get_mensajes"><i class="zmdi zmdi-comment-alt-text"></i></a>
+<div class="dropdown-menu dropdown-menu-right dropdown-menu--block"><div class="listview listview--hover">
+<div class="listview__header"><a href="#/ajax/?t=all_msj">Mensajes</a></div>
+<div class="listview__scroll scrollbar-inner update_get_mensajes">
+<a href="#" class="listview__item"><div class="listview__content"><div class="listview__heading">Cargando...</div><p>Espere un momento... <i class="fa fa-refresh fa-spin"></i></p></div></a>
+</div><div class="p-1"></div></div></div></li>
+
+</ul>
+</header>
+<aside class="sidebar">
+<div class="scrollbar-inner div_user_menu">
+<div align="center"><i class="fa fa-lock" aria-hidden="true"></i></div>
+</div>
+</aside>
+<section class="content">
+
+<div class="content_main">
+<div class="row"><div class="col-md-12"><div class="card"><div class="card-header"><h2 class="card-title text-center">Cargando... <i class="fa fa-refresh fa-spin"></i></h2><small class="card-subtitle"></small></div><div class="card-block">
+<h1 class="text-center text-info"></h1>
+</div></div></div></div>
+</div>
+
+<div class="modal fade modalin" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-sm_ modal-lg"><div class="modal-content"></div></div>
+</div>
+<div class="btn_nv_flotante" style="display: none;">
+<a href="#/viaje/nuevo_viaje" title="Nuevo Viaje" class="btn btn-danger btn--action btn--fixed zmdi zmdi-plus big-btn"></a>
+</div>
+<script>
+$(".open_modal_nuevo").on('click', function(){ $(".modal-content").html('<div align="center"><i class="fa fa-cog fa-spin fa-2x fa-fw"></i></div>'); $(".modal-content").load("ajax/modal_nuevo.php?id_img?t"+Date.now()); });
+</script>
+
+<div class="msj_footer"></div>
+
+<footer class="footer">
+<div style="margin-top: 0em; margin-bottom: 0em;">
+<a href="javascript:void(0);" onclick="window.open('https://www.facebook.com/CircleRide', '_system');" title="Siguenos en Facebook"><img src="img/social/facebook-128.png" width="35"></a> &nbsp;
+<a href="javascript:void(0);" onclick="window.open('https://twitter.com/CircleRide', '_system');" title="Siguenos en Twitter"><img src="img/social/twitter-128.png" width="35"></a> &nbsp;
+<a href="javascript:void(0);" onclick="window.open('https://plus.google.com/+CirclerideCom?rel=author', '_system');" rel="publisher" title="Siguenos en Google+"><img src="img/social/googleplus-128.png" width="35"></a>
+</div>
+<ul class="nav footer__nav hidden-xs-down">
+<a href="index.html" class="nav-link">Inicio</a>
+<a href="#estaticas/quienes-somos" class="nav-link">Qui&eacute;nes Somos</a>
+<a href="#estaticas/politicas-de-uso" class="nav-link">Pol&iacute;ticas de Uso</a>
+<a href="#estaticas/preguntas-frecuentes" class="nav-link">Preguntas Frecuentes</a>
+<a href="#estaticas/aviso-de-privacidad" class="nav-link">Aviso de Privacidad</a>
+<a href="#estaticas/contacto" class="nav-link">Contacto</a>
+</ul>
+<p>CircleRide &copy; 2017</p>
+<small><div class="live_session"></div></small>
+</footer>
+</section>
+</main>
+
+<script type="text/javascript" charset="ISO-8859-1">
+jQuery(document).ready(function($){ });
+device = {};
+window.onOnline = function onOnline(handle){
+if(handle) {  } else { handle = window.handle_url; }
+var token_push = window.localStorage.getItem("token_push");
+var User_Lat = window.localStorage.getItem("User_Lat");
+var User_Lon = window.localStorage.getItem("User_Lon");
+var geo_aprox = window.localStorage.getItem("geo_aprox");
+$.ajaxSetup({ async:true, cache: true });
+$.getScript(window.url_server+'/movil/api.get_script.php?id_cliente='+window.id_cliente+'&key='+window.my_uuid+'&token_push=' + window.localStorage.getItem('token_push')+'&device='+JSON.stringify(device) + '&lat='+User_Lat + '&lon='+User_Lon + '&geo_aprox='+geo_aprox+'&handle_url='+JSON.stringify(handle)+'&is_app=1', function(){
+//$(".content_main").html("<div class='main-content'><div align='center'><i class='fa fa-cog fa-spin'></i></div></div>");
+window.div_user_menu();
+window.div_extras_header();
+$('.content_main').load(window.url_server + '/_/index?is_app=1&app_online=1&key='+window.my_uuid+'&id_cliente='+window.id_cliente);
+});
+$(".content_main").ajaxError(function( e, jqxhr, settings, exception ){
+$(this).prepend("No se pudo enlazar con el servidor.<br>" + e + "<br>"+jqxhr);
+});
+};
+
+function onOffline() {
+//$.getScript('phonegap/offline.js', function(){  });
+$(".msj_footer").html('<div class="alert alert-danger alert-dismissible fade show text-center" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>' +
+'<a href="index.html" class="alert-link"><i class="fa fa-thumbs-down" aria-hidden="true"></i> Sin conexi&oacute;n a la red.</a>' +
+'</div>');
+//$(".msj_footer").html("<div align='center'><br><a href='index.html' class='btn btn-danger btn-lg btn-block'><i class='fa fa-thumbs-down' aria-hidden='true'></i> Sin conexi&oacute;n a la red.</a></div>");
+window.plugins.toast.showWithOptions({
+message: "Sin conexión a la red", duration: "long", position: "bottom",
+styling: { opacity: 0.75, backgroundColor: '#404040', textColor: '#FFFFFF',
+textSize: 18, // Default is approx. 13.
+cornerRadius: 16, // minimum is 0 (square). iOS default 20, Android default 100
+horizontalPadding: 20, // iOS default 16, Android default 50
+verticalPadding: 16 // iOS default 12, Android default 30 */
+}
+});
+}
+function Remove_onOffline() { $(".msj_footer").html(''); }
+
+document.addEventListener("offline", onOffline, false);
+document.addEventListener("online", Remove_onOffline, false);
+function ActivateOnline(){ window.onOnline(); }
+
+var app = {
+initialize: function(){ this.bindEvents(); },
+bindEvents: function(){ document.addEventListener('deviceready', this.onDeviceReady, false); },
+onDeviceReady: function(){
+app.receivedEvent('deviceready');
+localStorage.setItem("info_device", JSON.stringify(device));
+app.setupPush();
+ActivateOnline();
+},
+setupPush: function() {
+var push = PushNotification.init({ "android": { "senderID": "38913838556" }, "ios": { alert: "true", badge: "true", sound: "true", clearBadge: "true" }, "windows": {  } });
+push.on('registration', function(data){ var oldRegId = localStorage.getItem('registrationId'); if (oldRegId !== data.registrationId) { localStorage.setItem('registrationId', data.registrationId); window.localStorage.setItem("token_push", JSON.stringify(data)); } });
+push.on('error', function(e){  });
+push.on('notification', function(data){ if(typeof GetPushNotif == 'function') { window.GetPushNotif(data); } else { window.GetPushNotif = data; } });
+},
+receivedEvent: function(id){  }
+};
+app.initialize();
+
+//ActivateOnline();
+//$('.content_main').load(window.url_server + '/_/index?is_app=1&app_online=1&key='+window.my_uuid);
+
+window.BorrarLS = function BorrarLS(){
+function onConfirm(buttonIndex) {
+if(buttonIndex == 1){
+window.localStorage.clear();
+localStorage.clear();
+$(".content_main").html("Reiniciando valores | "+window.url_server);
+location = "index.html";
+}
+}
+navigator.notification.confirm('¿Esta seguro?', onConfirm,'Esta por borrar sus datos', ['Si','No'] );
+};
+
+$(document).ready(function(){
+$("#source_form").submit(function(e) { e.preventDefault(); $('#submit_form').prop("disabled", true);
+$("#response_form").html("<div class='alert_ alert-info_'><i class='fa fa-cog fa-spin'></i></div>");
+var postData_form = $(this).serializeArray(); var formURL_form = $(this).attr("action");
+$.ajax({ url: formURL_form, type: "POST", data: postData_form }).done(function(data, textStatus, jqXHR) {
+$("#response_form").html("" + data); }).fail(function(jqXHR, textStatus, errorThrown) {
+$("#response_form").html('Lo sentimos, pero sus datos no pudieron ser procesados.<br>' + jqXHR. statusText);
+}).always(function() { $('#submit_form').prop("disabled", false); }); }); });
+</script>
+
+<script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="vendors/bower_components/tether/dist/js/tether.min.js"></script>
+<script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="vendors/bower_components/Waves/dist/waves.min.js"></script>
+<script src="vendors/bower_components/select2/dist/js/select2.full.min.js"></script>
+<script src="vendors/bower_components/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+<script src="vendors/bower_components/jquery-scrollLock/jquery-scrollLock.min.js"></script>
+<script src="vendors/bower_components/Waves/dist/waves.min.js"></script>
+<script src="vendors/bower_components/flot/jquery.flot.js"></script>
+<script src="vendors/bower_components/flot/jquery.flot.resize.js"></script>
+<script src="vendors/bower_components/flot.curvedlines/curvedLines.js"></script>
+<script src="vendors/bower_components/jqvmap/dist/jquery.vmap.min.js"></script>
+<script src="vendors/bower_components/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+<script src="vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+<script src="vendors/bower_components/salvattore/dist/salvattore.min.js"></script>
+<script src="vendors/jquery.sparkline/jquery.sparkline.min.js"></script>
+<script src="vendors/bower_components/moment/min/moment.min.js"></script>
+<script src="vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+<script src="demo/js/flot-charts/curved-line.js"></script>
+<script src="demo/js/flot-charts/line.js"></script>
+<script src="demo/js/flot-charts/chart-tooltips.js"></script>
+<script src="demo/js/other-charts.js"></script>
+<script src="demo/js/jqvmap.js"></script>
+
+<script src="js/app.min.js"></script>
+<script src="js/footer_web.js?t=1508358693"></script>
+</body>
+</html>
