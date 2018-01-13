@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<widget xmlns = "http://www.w3.org/ns/widgets" xmlns:gap   = "http://phonegap.com/ns/1.0" id= "cf.mercayuda.app" version = "0.1" >
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap= "http://phonegap.com/ns/1.0" id= "cf.mercayuda.app" version="0.1" android-versionCode="7" ios-CFBundleVersion="3.3.3">
 
 <name>MarcAyuda</name>
 <description></description>
@@ -103,6 +103,7 @@ MercaAyuda.cf
 <param name="API_KEY_FOR_IOS" value="AIzaSyA0tumqw8e4mmN5_7VH0GCxHtUtSiAZKbI" />
 </gap:plugin> -->
 
+<!--
 <icon src="icon.png" />
 <platform name="android">
 	<icon density="ldpi" src="res/icons/android/drawable-ldpi-icon.png" />
@@ -157,7 +158,7 @@ MercaAyuda.cf
 </platform>
 <platform name="windows">
 <icon src="icon.png" />
-</platform>
+</platform>-->
 
 <gap:config-file platform="ios" parent="CFBundleShortVersionString">
 <string>100</string>
