@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap= "http://phonegap.com/ns/1.0" id= "cf.mercayuda.app" version="0.1" android-versionCode="7" ios-CFBundleVersion="3.3.3">
 
-<name>MarcAyuda</name>
+<name>MercAyuda</name>
 <description></description>
 <author href="http://www.mercayuda.cf" email="maitret@myhostmx.com">
 MercaAyuda.cf
