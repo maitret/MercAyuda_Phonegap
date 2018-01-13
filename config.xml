@@ -50,9 +50,9 @@ MercaAyuda.cf
 <plugin name="cordova-plugin-device-motion" />
 <plugin name="cordova-plugin-device-orientation" />
 <plugin name="cordova-plugin-dialogs" />
-<!-- <plugin name="cordova-plugin-file" spec="~5.0.0" /> -->
+<plugin name="cordova-plugin-file" spec="~5.0.0" />
 <plugin name="cordova-plugin-file" />
-<!-- <plugin name="cordova-plugin-file-transfer" spec="~1.6.3" /> -->
+<plugin name="cordova-plugin-file-transfer" spec="~1.6.3" />
 <plugin name="cordova-plugin-file-transfer" />
 <plugin name="cordova-plugin-geolocation" />
 <plugin name="cordova-plugin-inappbrowser" />
