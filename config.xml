@@ -54,7 +54,7 @@ MercaAyuda.cf
 <!--  spec="4.3.3"  -->
 <plugin name="cordova-plugin-file" source="npm" spec="~4.3.3" />
 <!--  spec="1.6.3"  -->
-<plugin name="cordova-plugin-file-transfer" />
+<plugin name="cordova-plugin-file-transfer2" />
 
 <plugin name="cordova-plugin-geolocation" />
 <plugin name="cordova-plugin-inappbrowser" />
